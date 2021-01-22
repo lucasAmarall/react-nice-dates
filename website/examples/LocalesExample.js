@@ -41,7 +41,7 @@ export default function LocalesExample() {
     <Example code={code}>
       <p>US English:</p>
 
-      <DatePicker date={date} onDateChange={setDate} locale={enUS}>
+      <DatePicker date={date} onDateChange={setDate} locale={enUS} getDayAriaLabel={date => `LocalesExample.js ${date}`}>
         {({ inputProps, focused }) => <input className={'input' + (focused ? ' -focused' : '')} {...inputProps} />}
       </DatePicker>
 
@@ -49,7 +49,7 @@ export default function LocalesExample() {
 
       <p>Spanish:</p>
 
-      <DatePicker date={date} onDateChange={setDate} locale={es} format='dd/MM/yyyy'>
+      <DatePicker date={date} onDateChange={setDate} locale={es} format='dd/MM/yyyy' getDayAriaLabel={date => `LocalesExample.js2 ${date}`}>
         {({ inputProps, focused }) => (
           <input className={'input' + (focused ? ' -focused' : '')} {...inputProps} />
         )}

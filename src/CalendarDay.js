@@ -21,7 +21,8 @@ export default function CalendarDay({
   modifiers: receivedModifiers,
   modifiersClassNames: receivedModifiersClassNames,
   onClick,
-  onHover
+  onHover,
+  getDayAriaLabel,
 }) {
   const dayOfMonth = getDate(date)
   const dayClassNames = {}
@@ -46,19 +47,20 @@ export default function CalendarDay({
   }
 
   return (
-    <span
+    <a
       className={classNames('nice-dates-day', dayClassNames)}
-      onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onTouchEnd={handleClick}
       style={{ height }}
+      aria-label={getDayAriaLabel(date)}
+      onClick={handleClick}
+      href="javascript:;"
     >
-      {dayOfMonth === 1 && (
-        <span className='nice-dates-day_month'>{format(date, 'LLL', { locale })}</span>
-      )}
-      <span className='nice-dates-day_date'>{dayOfMonth}</span>
-    </span>
+      <span className='nice-dates-day_date'>
+        {dayOfMonth}
+      </span>
+    </a>
   )
 }
 
@@ -69,11 +71,13 @@ CalendarDay.propTypes = {
   modifiers: objectOf(bool),
   modifiersClassNames: objectOf(string),
   onHover: func,
-  onClick: func
+  onClick: func,
+  getDayAriaLabel: func
 }
 
 CalendarDay.defaultProps = {
   modifiers: {},
   onHover: () => {},
-  onClick: () => {}
+  onClick: () => {},
+  getDayAriaLabel: () => {},
 }

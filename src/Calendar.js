@@ -17,7 +17,10 @@ export default function Calendar({
   onMonthChange,
   onDayHover,
   onDayClick,
-  weekdayFormat
+  weekdayFormat,
+  getDayAriaLabel,
+  getNextMonthAriaLabel,
+  getPrevMonthAriaLabel,
 }) {
   const [month, setMonth] = useControllableState(receivedMonth, onMonthChange, startOfMonth(new Date()))
 
@@ -34,6 +37,8 @@ export default function Calendar({
         maximumDate={maximumDate}
         month={month}
         onMonthChange={setMonth}
+        getNextMonthAriaLabel={getNextMonthAriaLabel}
+        getPrevMonthAriaLabel={getPrevMonthAriaLabel}
       />
 
       <CalendarWeekHeader locale={locale} weekdayFormat={weekdayFormat}/>
@@ -46,6 +51,7 @@ export default function Calendar({
         onMonthChange={setMonth}
         onDayHover={onDayHover}
         onDayClick={onDayClick}
+        getDayAriaLabel={getDayAriaLabel}
       />
     </div>
   )
@@ -61,5 +67,8 @@ Calendar.propTypes = {
   onMonthChange: func,
   onDayHover: func,
   onDayClick: func,
+  getDayAriaLabel: func,
+  getNextMonthAriaLabel: func,
+  getPrevMonthAriaLabel: func,
   weekdayFormat: string
 }

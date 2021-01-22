@@ -58,6 +58,7 @@ export default function ModifiersExample() {
         locale={enGB}
         modifiers={modifiers}
         modifiersClassNames={modifiersClassNames}
+        getDayAriaLabel={date => `ModifiersExample.js2 ${date}`}
       />
     </Example>
   )

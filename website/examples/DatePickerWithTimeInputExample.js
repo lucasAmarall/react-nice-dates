@@ -46,7 +46,8 @@ export default function DatePickerWithTimeInputExample() {
   return (
     <Example code={code}>
       <div style={{ display: 'flex' }}>
-        <DatePicker date={date} onDateChange={setDate} locale={enGB} format='dd/MM/yyyy'>
+        <DatePicker date={date} onDateChange={setDate} locale={enGB} format='dd/MM/yyyy' 
+          getDayAriaLabel={date => `DatePickerWithTimeInputExample.js ${date}`}>
           {({ inputProps, focused }) => (
             <input className={'input' + (focused ? ' -focused' : '')} style={{ width: 150 }} {...inputProps} />
           )}

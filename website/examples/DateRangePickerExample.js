@@ -59,6 +59,7 @@ export default function DateRangePickerExample() {
         minimumLength={1}
         format='dd MMM yyyy'
         locale={enGB}
+        getDayAriaLabel={date => `DateRangePickerExample.js ${date}`}
       >
         {({ startDateInputProps, endDateInputProps, focus }) => (
           <div className='date-range'>

@@ -24,7 +24,10 @@ export default function CalendarGrid({
   onMonthChange,
   onDayHover,
   onDayClick,
-  transitionDuration
+  transitionDuration,
+  getDayAriaLabel,
+  getNextMonthAriaLabel,
+  getPrevMonthAriaLabel,
 }) {
   const grid = useGrid({ locale, month: startOfMonth(month), onMonthChange, transitionDuration })
   const { startDate, endDate, cellHeight, containerElementRef, isWide, offset, origin, transition } = grid
@@ -47,6 +50,9 @@ export default function CalendarGrid({
         modifiersClassNames={modifiersClassNames}
         onHover={onDayHover}
         onClick={onDayClick}
+        getDayAriaLabel={getDayAriaLabel}
+        getNextMonthAriaLabel={getNextMonthAriaLabel}
+        getPrevMonthAriaLabel={getPrevMonthAriaLabel}
       />
     )
   })
@@ -80,7 +86,10 @@ CalendarGrid.propTypes = {
   onMonthChange: func.isRequired,
   onDayHover: func,
   onDayClick: func,
-  transitionDuration: number.isRequired
+  transitionDuration: number.isRequired,
+  getDayAriaLabel: func,
+  getNextMonthAriaLabel: func,
+  getPrevMonthAriaLabel: func,
 }
 
 CalendarGrid.defaultProps = {

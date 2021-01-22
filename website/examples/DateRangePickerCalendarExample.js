@@ -63,6 +63,7 @@ export default function DateRangePickerCalendarExample() {
         onEndDateChange={setEndDate}
         onFocusChange={handleFocusChange}
         locale={enGB}
+        getDayAriaLabel={date => `DateRangePickerCalendarExample.js ${date}`}
       />
     </Example>
   )

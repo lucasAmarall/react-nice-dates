@@ -15,7 +15,10 @@ export default function DatePickerCalendar({
   maximumDate,
   modifiers: receivedModifiers,
   modifiersClassNames,
-  weekdayFormat
+  weekdayFormat,
+  getDayAriaLabel,
+  getNextMonthAriaLabel,
+  getPrevMonthAriaLabel,
 }) {
   const isSelected = date => isSameDay(date, selectedDate) && isSelectable(date, { minimumDate, maximumDate })
   const modifiers = mergeModifiers({ selected: isSelected, disabled: isSelected }, receivedModifiers)
@@ -36,6 +39,9 @@ export default function DatePickerCalendar({
       modifiers={modifiers}
       modifiersClassNames={modifiersClassNames}
       weekdayFormat={weekdayFormat}
+      getDayAriaLabel={getDayAriaLabel}
+      getNextMonthAriaLabel={getNextMonthAriaLabel}
+      getPrevMonthAriaLabel={getPrevMonthAriaLabel}
     />
   )
 }
@@ -46,9 +52,12 @@ DatePickerCalendar.propTypes = {
   month: instanceOf(Date),
   onDateChange: func,
   onMonthChange: func,
+  getDayAriaLabel: func,
   minimumDate: instanceOf(Date),
   maximumDate: instanceOf(Date),
   modifiers: objectOf(func),
   modifiersClassNames: objectOf(string),
-  weekdayFormat: string
+  weekdayFormat: string,
+  getNextMonthAriaLabel: func,
+  getPrevMonthAriaLabel: func,
 }

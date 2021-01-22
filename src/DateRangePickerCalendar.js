@@ -22,7 +22,10 @@ export default function DateRangePickerCalendar({
   maximumLength,
   modifiers: receivedModifiers,
   modifiersClassNames,
-  weekdayFormat
+  weekdayFormat,
+  getDayAriaLabel,
+  getNextMonthAriaLabel,
+  getPrevMonthAriaLabel,
 }) {
   const [hoveredDate, setHoveredDate] = useState()
   const [month, setMonth] = useControllableState(
@@ -106,6 +109,9 @@ export default function DateRangePickerCalendar({
       modifiers={modifiers}
       modifiersClassNames={modifiersClassNames}
       weekdayFormat={weekdayFormat}
+      getDayAriaLabel={getDayAriaLabel}
+      getNextMonthAriaLabel={getNextMonthAriaLabel}
+      getPrevMonthAriaLabel={getPrevMonthAriaLabel}
     />
   )
 }
@@ -126,13 +132,17 @@ DateRangePickerCalendar.propTypes = {
   maximumLength: number,
   modifiers: objectOf(func),
   modifiersClassNames: objectOf(string),
-  weekdayFormat: string
+  weekdayFormat: string,
+  getDayAriaLabel: func,
+  getNextMonthAriaLabel: func,
+  getPrevMonthAriaLabel: func,
 }
 
 DateRangePickerCalendar.defaultProps = {
   onStartDateChange: () => {},
   onEndDateChange: () => {},
   onFocusChange: () => {},
+  getDayAriaLabel: () => {},
   minimumLength: 0,
   maximumLength: null
 }

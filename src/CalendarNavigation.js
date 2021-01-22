@@ -1,9 +1,10 @@
 import React from 'react'
 import { func, instanceOf, object } from 'prop-types'
 import classNames from 'classnames'
-import { addMonths, getYear, startOfMonth, subMonths, format, isSameMonth } from 'date-fns'
+import { addMonths, startOfMonth, subMonths, format, isSameMonth } from 'date-fns'
 
-export default function CalendarNavigation({ locale, month, minimumDate, maximumDate, onMonthChange }) {
+export default function CalendarNavigation({ locale, month, minimumDate, maximumDate, onMonthChange, getNextMonthAriaLabel,
+  getPrevMonthAriaLabel, }) {
   const handlePrevious = event => {
     onMonthChange(startOfMonth(subMonths(month, 1)))
     event.preventDefault()
@@ -22,10 +23,14 @@ export default function CalendarNavigation({ locale, month, minimumDate, maximum
         })}
         onClick={handlePrevious}
         onTouchEnd={handlePrevious}
+        tabIndex={1}
+        aria-label={getPrevMonthAriaLabel(month)}
       />
 
-      <span className='nice-dates-navigation_current'>
-        {format(month, getYear(month) === getYear(new Date()) ? 'LLLL' : 'LLLL yyyy', { locale })}
+      <span className='nice-dates-navigation_current' tabIndex={1}>
+        {format(month, 'LLLL', { locale })}
+        <span aria-hidden> / </span>
+        {format(month, 'yyyy', { locale })}
       </span>
 
       <a
@@ -34,6 +39,8 @@ export default function CalendarNavigation({ locale, month, minimumDate, maximum
         })}
         onClick={handleNext}
         onTouchEnd={handleNext}
+        tabIndex={1}
+        aria-label={getNextMonthAriaLabel(month)}
       />
     </div>
   )
@@ -44,5 +51,12 @@ CalendarNavigation.propTypes = {
   month: instanceOf(Date).isRequired,
   minimumDate: instanceOf(Date),
   maximumDate: instanceOf(Date),
-  onMonthChange: func.isRequired
+  onMonthChange: func.isRequired,
+  getNextMonthAriaLabel: func,
+  getPrevMonthAriaLabel: func,
+}
+
+CalendarNavigation.defaultProps = {
+  getNextMonthAriaLabel: () => {},
+  getPrevMonthAriaLabel: () => {},
 }
