@@ -25,11 +25,11 @@ export default function CalendarNavigation({
         })}
         onClick={handlePrevious}
         onTouchEnd={handlePrevious}
-        tabIndex={1}
+        tabIndex="0"
         aria-label={getPrevMonthAriaLabel(month)}
       />
 
-      <span className='nice-dates-navigation_current' tabIndex={1}>
+      <span className='nice-dates-navigation_current' tabIndex="0">
         {format(month, 'LLLL', { locale })}
         <span aria-hidden> / </span>
         {format(month, 'yyyy', { locale })}
@@ -41,7 +41,7 @@ export default function CalendarNavigation({
         })}
         onClick={handleNext}
         onTouchEnd={handleNext}
-        tabIndex={1}
+        tabIndex="0"
         aria-label={getNextMonthAriaLabel(month)}
       />
     </div>

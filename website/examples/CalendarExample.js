@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { isSameDay } from 'date-fns'
+import { isSameDay, format } from 'date-fns'
 import { enGB } from 'date-fns/locale'
 import { Calendar } from '../../src'
 import Example from './Example'

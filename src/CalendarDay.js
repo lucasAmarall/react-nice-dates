@@ -46,8 +46,9 @@ export default function CalendarDay({
     onHover(null)
   }
 
-  return (
+return (
     <a
+      tabIndex="0"
       className={classNames('nice-dates-day', dayClassNames)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
