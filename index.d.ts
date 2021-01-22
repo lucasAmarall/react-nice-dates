@@ -27,6 +27,9 @@ declare module "react-nice-dates" {
     modifiers?: Modifiers;
     modifiersClassNames?: ModifiersClassNames;
     weekdayFormat?: string;
+    getNextMonthAriaLabel: (date: Date) => unknown,
+    getPrevMonthAriaLabel: (date: Date) => unknown,
+    getDayAriaLabel: (date: Date) => unknown,
   }
 
   interface CalendarProps extends CommonProps {

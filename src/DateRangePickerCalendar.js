@@ -25,7 +25,7 @@ export default function DateRangePickerCalendar({
   weekdayFormat,
   getDayAriaLabel,
   getNextMonthAriaLabel,
-  getPrevMonthAriaLabel,
+  getPrevMonthAriaLabel
 }) {
   const [hoveredDate, setHoveredDate] = useState()
   const [month, setMonth] = useControllableState(
@@ -135,7 +135,7 @@ DateRangePickerCalendar.propTypes = {
   weekdayFormat: string,
   getDayAriaLabel: func,
   getNextMonthAriaLabel: func,
-  getPrevMonthAriaLabel: func,
+  getPrevMonthAriaLabel: func
 }
 
 DateRangePickerCalendar.defaultProps = {

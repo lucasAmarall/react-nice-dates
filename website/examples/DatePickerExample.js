@@ -30,7 +30,7 @@ export default function DatePickerExample() {
 
   return (
     <Example code={code}>
-      <DatePicker 
+      <DatePicker
         getDayAriaLabel={date => `DatePickerExample ${date}`}
         date={date} onDateChange={setDate} locale={enGB}>
         {({ inputProps, focused }) => <input className={'input' + (focused ? ' -focusedÏ' : '')} {...inputProps} />}

@@ -20,7 +20,7 @@ export default function Calendar({
   weekdayFormat,
   getDayAriaLabel,
   getNextMonthAriaLabel,
-  getPrevMonthAriaLabel,
+  getPrevMonthAriaLabel
 }) {
   const [month, setMonth] = useControllableState(receivedMonth, onMonthChange, startOfMonth(new Date()))
 

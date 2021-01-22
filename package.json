@@ -1,20 +1,20 @@
 {
-  "name": "react-nice-dates",
-  "version": "3.0.7",
+  "name": "la-react-nice-dates",
+  "version": "3.0.8",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "unpkg": "build/index.umd.js",
-  "author": "Hernán Sartorio",
+  "author": "Lucas Amaral",
   "license": "MIT",
   "types": "index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hernansartorio/react-nice-dates.git"
+    "url": "git+https://github.com/lucasAmarall/react-nice-dates/react-nice-dates.git"
   },
   "bugs": {
-    "url": "https://github.com/hernansartorio/react-nice-dates/issues"
+    "url": "https://github.com/lucasAmarall/react-nice-dates/react-nice-dates/issues"
   },
-  "homepage": "https://github.com/hernansartorio/react-nice-dates#readme",
+  "homepage": "https://github.com/lucasAmarall/react-nice-dates/react-nice-dates#readme",
   "files": [
     "build",
     "src/style.scss",
@@ -26,6 +26,7 @@
     "build:website": "rm -rf build-website/* && parcel build website/index.html -d build-website --experimental-scope-hoisting --no-content-hash && cp website/CNAME build-website/CNAME",
     "deploy": "gh-pages -d build-website",
     "lint": "eslint --cache --format codeframe src test website",
+    "lint:fix": "eslint --fix --cache --format codeframe src test website",
     "release": "yarn run build && np",
     "test": "jest",
     "test:watch": "jest --watch"

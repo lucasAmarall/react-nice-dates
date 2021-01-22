@@ -46,10 +46,10 @@ export default function DatePickerCalendarWithInputExample() {
     <Example code={code}>
       <p>The selected date is {date && format(date, 'dd MMM yyyy', { locale: enGB })}</p>
       <input className='input' {...inputProps} />
-      <DatePickerCalendar 
-        date={date} 
-        onDateChange={setDate} 
-        locale={enGB}  
+      <DatePickerCalendar
+        date={date}
+        onDateChange={setDate}
+        locale={enGB}
         getDayAriaLabel={date => `DatePickerCalendarWithInputExample ${date}`} />
     </Example>
   )

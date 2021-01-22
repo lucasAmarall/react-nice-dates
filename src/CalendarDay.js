@@ -22,7 +22,7 @@ export default function CalendarDay({
   modifiersClassNames: receivedModifiersClassNames,
   onClick,
   onHover,
-  getDayAriaLabel,
+  getDayAriaLabel
 }) {
   const dayOfMonth = getDate(date)
   const dayClassNames = {}
@@ -79,5 +79,5 @@ CalendarDay.defaultProps = {
   modifiers: {},
   onHover: () => {},
   onClick: () => {},
-  getDayAriaLabel: () => {},
+  getDayAriaLabel: () => {}
 }

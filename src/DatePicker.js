@@ -17,7 +17,7 @@ export default function DatePicker({
   modifiers,
   modifiersClassNames,
   weekdayFormat,
-  getDayAriaLabel,
+  getDayAriaLabel
 }) {
   const [month, setMonth] = useState(date || new Date())
   const [focused, setFocused] = useState(false)
@@ -78,7 +78,7 @@ export default function DatePicker({
           modifiersClassNames={modifiersClassNames}
           weekdayFormat={weekdayFormat}
           getDayAriaLabel={getDayAriaLabel}
-      />
+        />
       </Popover>
     </div>
   )
@@ -101,5 +101,5 @@ DatePicker.propTypes = {
 DatePicker.defaultProps = {
   onDateChange: () => {},
   getDayAriaLabel: () => {},
-  onDateChange: () => {},
+  onDateChange: () => {}
 }

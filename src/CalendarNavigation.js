@@ -3,8 +3,10 @@ import { func, instanceOf, object } from 'prop-types'
 import classNames from 'classnames'
 import { addMonths, startOfMonth, subMonths, format, isSameMonth } from 'date-fns'
 
-export default function CalendarNavigation({ locale, month, minimumDate, maximumDate, onMonthChange, getNextMonthAriaLabel,
-  getPrevMonthAriaLabel, }) {
+export default function CalendarNavigation({
+  locale, month, minimumDate, maximumDate, onMonthChange, getNextMonthAriaLabel,
+  getPrevMonthAriaLabel
+}) {
   const handlePrevious = event => {
     onMonthChange(startOfMonth(subMonths(month, 1)))
     event.preventDefault()
@@ -53,10 +55,10 @@ CalendarNavigation.propTypes = {
   maximumDate: instanceOf(Date),
   onMonthChange: func.isRequired,
   getNextMonthAriaLabel: func,
-  getPrevMonthAriaLabel: func,
+  getPrevMonthAriaLabel: func
 }
 
 CalendarNavigation.defaultProps = {
   getNextMonthAriaLabel: () => {},
-  getPrevMonthAriaLabel: () => {},
+  getPrevMonthAriaLabel: () => {}
 }

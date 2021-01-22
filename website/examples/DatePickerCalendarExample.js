@@ -33,7 +33,7 @@ export default function DatePickerCalendarExample() {
     <Example code={code}>
       <p>Selected date: {date ? format(date, 'dd MMM yyyy', { locale: enGB }) : 'none'}.</p>
 
-      <DatePickerCalendar  
+      <DatePickerCalendar
         getDayAriaLabel={date => `DatePickerCalendar ${date}`}
         date={date} onDateChange={setDate} locale={enGB} />
     </Example>
