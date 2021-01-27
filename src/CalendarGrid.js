@@ -50,6 +50,7 @@ export default function CalendarGrid({
         modifiersClassNames={modifiersClassNames}
         onHover={onDayHover}
         onClick={onDayClick}
+        hideAriaLabel={!isSameMonth(date, month)}
         getDayAriaLabel={getDayAriaLabel}
         getNextMonthAriaLabel={getNextMonthAriaLabel}
         getPrevMonthAriaLabel={getPrevMonthAriaLabel}

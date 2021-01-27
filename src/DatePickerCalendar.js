@@ -1,5 +1,5 @@
 import React from 'react'
-import { instanceOf, func, object, objectOf, string } from 'prop-types'
+import { instanceOf, func, object, objectOf, string, bool } from 'prop-types'
 import { isSameDay, startOfMonth } from 'date-fns'
 import { isSelectable, mergeModifiers, setTime } from './utils'
 import useControllableState from './useControllableState'
@@ -16,6 +16,7 @@ export default function DatePickerCalendar({
   modifiers: receivedModifiers,
   modifiersClassNames,
   weekdayFormat,
+  shortWeekDay,
   getDayAriaLabel,
   getNextMonthAriaLabel,
   getPrevMonthAriaLabel
@@ -38,7 +39,7 @@ export default function DatePickerCalendar({
       maximumDate={maximumDate}
       modifiers={modifiers}
       modifiersClassNames={modifiersClassNames}
-      weekdayFormat={weekdayFormat}
+      weekdayFormat={shortWeekDay}
       getDayAriaLabel={getDayAriaLabel}
       getNextMonthAriaLabel={getNextMonthAriaLabel}
       getPrevMonthAriaLabel={getPrevMonthAriaLabel}
@@ -53,6 +54,7 @@ DatePickerCalendar.propTypes = {
   onDateChange: func,
   onMonthChange: func,
   getDayAriaLabel: func,
+  shortWeekDay: bool,
   minimumDate: instanceOf(Date),
   maximumDate: instanceOf(Date),
   modifiers: objectOf(func),

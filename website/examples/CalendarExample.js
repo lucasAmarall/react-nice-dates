@@ -43,7 +43,9 @@ export default function CalendarExample() {
 
   return (
     <Example code={code}>
-      <Calendar onDayClick={handleDayClick} modifiers={modifiers} locale={enGB} getDayAriaLabel={
+      <Calendar 
+      shortWeekDay
+      onDayClick={handleDayClick} modifiers={modifiers} locale={enGB} getDayAriaLabel={
         date => `Calendar ${date}`
       }
       getNextMonthAriaLabel={(date) => `Go to: ${format(date, 'LLLL')}`}

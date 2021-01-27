@@ -1,5 +1,5 @@
 import React from 'react'
-import { func, instanceOf, object, objectOf, string } from 'prop-types'
+import { bool, func, instanceOf, object, objectOf, string } from 'prop-types'
 import { startOfMonth } from 'date-fns'
 import { isSelectable, mergeModifiers } from './utils'
 import useControllableState from './useControllableState'
@@ -19,6 +19,7 @@ export default function Calendar({
   onDayClick,
   weekdayFormat,
   getDayAriaLabel,
+  shortWeekDay,
   getNextMonthAriaLabel,
   getPrevMonthAriaLabel
 }) {
@@ -41,7 +42,7 @@ export default function Calendar({
         getPrevMonthAriaLabel={getPrevMonthAriaLabel}
       />
 
-      <CalendarWeekHeader locale={locale} weekdayFormat={weekdayFormat}/>
+      <CalendarWeekHeader locale={locale} weekdayFormat={weekdayFormat} shortWeekDay={shortWeekDay} />
 
       <CalendarGrid
         locale={locale}
@@ -68,6 +69,7 @@ Calendar.propTypes = {
   onDayHover: func,
   onDayClick: func,
   getDayAriaLabel: func,
+  shortWeekDay: bool,
   getNextMonthAriaLabel: func,
   getPrevMonthAriaLabel: func,
   weekdayFormat: string

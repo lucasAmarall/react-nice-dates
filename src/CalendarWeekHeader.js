@@ -1,8 +1,8 @@
 import React from 'react'
-import { object, string } from 'prop-types'
+import { bool, object, string } from 'prop-types'
 import { eachDayOfInterval, endOfWeek, startOfWeek, format } from 'date-fns'
 
-export default function CalendarWeekHeader({ locale, weekdayFormat }) {
+export default function CalendarWeekHeader({ locale, weekdayFormat, shortWeekDay }) {
   const today = new Date()
 
   const weekDays = eachDayOfInterval({
@@ -13,8 +13,8 @@ export default function CalendarWeekHeader({ locale, weekdayFormat }) {
   return (
     <div className='nice-dates-week-header'>
       {weekDays.map(day => (
-        <span key={day} className='nice-dates-week-header_day'>
-          {day}
+        <span key={day} className='nice-dates-week-header_day' aria-hidden>
+          {shortWeekDay ? day[0] : day}
         </span>
       ))}
     </div>
@@ -23,9 +23,11 @@ export default function CalendarWeekHeader({ locale, weekdayFormat }) {
 
 CalendarWeekHeader.propTypes = {
   locale: object.isRequired,
+  shortWeekDay: bool,
   weekdayFormat: string
 }
 
 CalendarWeekHeader.defaultProps = {
+  shortWeekDay: false,
   weekdayFormat: 'eee'
 }

@@ -22,7 +22,8 @@ export default function CalendarDay({
   modifiersClassNames: receivedModifiersClassNames,
   onClick,
   onHover,
-  getDayAriaLabel
+  getDayAriaLabel,
+  hideAriaLabel,
 }) {
   const dayOfMonth = getDate(date)
   const dayClassNames = {}
@@ -54,6 +55,7 @@ return (
       onMouseLeave={handleMouseLeave}
       onTouchEnd={handleClick}
       style={{ height }}
+      aria-hidden={hideAriaLabel}
       aria-label={getDayAriaLabel(date)}
       onClick={handleClick}
       href="javascript:;"
@@ -68,6 +70,7 @@ return (
 CalendarDay.propTypes = {
   date: instanceOf(Date).isRequired,
   height: number.isRequired,
+  hideAriaLabel: bool,
   locale: object.isRequired,
   modifiers: objectOf(bool),
   modifiersClassNames: objectOf(string),
@@ -77,6 +80,7 @@ CalendarDay.propTypes = {
 }
 
 CalendarDay.defaultProps = {
+  hideAriaLabel: true,
   modifiers: {},
   onHover: () => {},
   onClick: () => {},
