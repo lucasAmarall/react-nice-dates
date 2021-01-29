@@ -19,6 +19,11 @@ export default function CalendarNavigation({
 
   return (
     <div className='nice-dates-navigation'>
+      <span className='nice-dates-navigation_current' tabIndex="0">
+        {format(month, 'LLLL', { locale })}
+        <span aria-hidden> / </span>
+        {format(month, 'yyyy', { locale })}
+      </span>
       <a
         className={classNames('nice-dates-navigation_previous', {
           '-disabled': isSameMonth(month, minimumDate)
@@ -28,13 +33,6 @@ export default function CalendarNavigation({
         tabIndex="0"
         aria-label={getPrevMonthAriaLabel(month)}
       />
-
-      <span className='nice-dates-navigation_current' tabIndex="0">
-        {format(month, 'LLLL', { locale })}
-        <span aria-hidden> / </span>
-        {format(month, 'yyyy', { locale })}
-      </span>
-
       <a
         className={classNames('nice-dates-navigation_next', {
           '-disabled': isSameMonth(month, maximumDate)

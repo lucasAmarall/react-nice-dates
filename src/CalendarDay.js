@@ -49,7 +49,7 @@ export default function CalendarDay({
 
 return (
     <a
-      tabIndex="0"
+      tabIndex={hideAriaLabel ? "-1" : "0"}
       className={classNames('nice-dates-day', dayClassNames)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -57,7 +57,7 @@ return (
       style={{ height }}
       aria-hidden={hideAriaLabel}
       aria-label={getDayAriaLabel(date)}
-      onClick={handleClick}
+      onClick={(!hideAriaLabel ? handleClick : () => null)}
       href="javascript:;"
     >
       <span className='nice-dates-day_date'>

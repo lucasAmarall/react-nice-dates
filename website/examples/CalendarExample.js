@@ -44,7 +44,7 @@ export default function CalendarExample() {
   return (
     <Example code={code}>
       <Calendar 
-      shortWeekDay
+      shortWeekDay={true}
       onDayClick={handleDayClick} modifiers={modifiers} locale={enGB} getDayAriaLabel={
         date => `Calendar ${date}`
       }
