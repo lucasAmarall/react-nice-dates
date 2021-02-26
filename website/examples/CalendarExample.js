@@ -45,6 +45,8 @@ export default function CalendarExample() {
   return (
     <Example code={code}>
       <Calendar 
+      minimumDate={new Date('02/21/2021')}
+      maximumDate={new Date('02/31/2021')}
       shortWeekDay={true}
       onDayClick={handleDayClick} modifiers={modifiers} locale={enGB} getDayAriaLabel={
         date => `Calendar ${date}`

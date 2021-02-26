@@ -1,15 +1,20 @@
 import React from "react";
 import { instanceOf, func, number, object, objectOf, string } from "prop-types";
 import {
+  addDays,
   eachDayOfInterval,
+  isAfter,
+  isBefore,
   isSameMonth,
   lightFormat,
   startOfMonth,
+  subDays,
 } from "date-fns";
 import classNames from "classnames";
 import useGrid from "./useGrid";
 import { ORIGIN_BOTTOM, ORIGIN_TOP } from "./constants";
 import CalendarDay from "./CalendarDay";
+import { isSelectable } from './utils'
 
 const computeModifiers = (modifiers, date) => {
   const computedModifiers = {};
@@ -34,8 +39,10 @@ export default function CalendarGrid({
   getNextMonthAriaLabel,
   getPrevMonthAriaLabel,
   direction,
+  minimumDate,
+  maximumDate,
 }) {
-  const grid = useGrid({
+  const grid = useGrid({  
     locale,
     month: startOfMonth(month),
     onMonthChange,
@@ -57,6 +64,9 @@ export default function CalendarGrid({
     start: startDate,
     end: endDate,
   }).map((date) => {
+
+    let hideAriaLabel = !isSelectable(date, { minimumDate, maximumDate }) || !isSameMonth(date, month);
+
     return (
       <CalendarDay
         date={date}
@@ -71,7 +81,7 @@ export default function CalendarGrid({
         modifiersClassNames={modifiersClassNames}
         onHover={onDayHover}
         onClick={onDayClick}
-        hideAriaLabel={!isSameMonth(date, month)}
+        hideAriaLabel={hideAriaLabel}
         getDayAriaLabel={getDayAriaLabel}
         getNextMonthAriaLabel={getNextMonthAriaLabel}
         getPrevMonthAriaLabel={getPrevMonthAriaLabel}
@@ -116,6 +126,8 @@ CalendarGrid.propTypes = {
   getNextMonthAriaLabel: func,
   getPrevMonthAriaLabel: func,
   direction: string,
+  minimumDate: instanceOf(Date),
+  maximumDate: instanceOf(Date),
 };
 
 CalendarGrid.defaultProps = {

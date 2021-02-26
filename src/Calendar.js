@@ -59,6 +59,8 @@ export default function Calendar({
         onDayClick={onDayClick}
         getDayAriaLabel={getDayAriaLabel}
         direction={direction}
+        minimumDate={minimumDate}
+        maximumDate={maximumDate}
       />
     </div>
   );
