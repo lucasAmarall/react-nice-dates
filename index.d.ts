@@ -28,6 +28,7 @@ declare module "la-react-nice-dates" {
     modifiersClassNames?: ModifiersClassNames;
     weekdayFormat?: string;
     shortWeekDay?: boolean;
+    cellHeight?: number;
     getNextMonthAriaLabel?: (date: Date) => unknown,
     getPrevMonthAriaLabel?: (date: Date) => unknown,
     getDayAriaLabel?: (date: Date) => unknown,

@@ -37,6 +37,7 @@ const createInitialState = (currentMonth, locale) => {
 }
 
 const reducer = (state, action) => {
+  console.log(`reducer::${action.type}`, {state, action});
   switch (action.type) {
     case 'setStartDate':
       return { ...state, startDate: action.value }
@@ -92,7 +93,7 @@ const reducer = (state, action) => {
   }
 }
 
-export default function useGrid({ locale, month: currentMonth, onMonthChange, transitionDuration }) {
+export default function useGrid({ locale, month: currentMonth, onMonthChange, transitionDuration, propCellHeight }) {
   const timeoutRef = useRef()
   const containerElementRef = useRef()
   const initialDragPositionRef = useRef(0)
@@ -224,7 +225,9 @@ export default function useGrid({ locale, month: currentMonth, onMonthChange, tr
       }
 
       dispatch({ type: 'setIsWide', value: wide })
-      dispatch({ type: 'setCellHeight', value: newCellHeight })
+      if(propCellHeight) {
+        dispatch({ type: 'setCellHeight', value: propCellHeight });
+      }
     }
 
     window.addEventListener('resize', handleResize)

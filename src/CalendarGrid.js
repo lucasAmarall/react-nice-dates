@@ -40,8 +40,9 @@ export default function CalendarGrid({
   getPrevMonthAriaLabel,
   minimumDate,
   maximumDate,
+  cellHeight: propCellHeight
 }) {
-  const grid = useGrid({ locale, month: startOfMonth(month), onMonthChange, transitionDuration })
+  const grid = useGrid({ locale, month: startOfMonth(month), onMonthChange, transitionDuration, propCellHeight })
   const { startDate, endDate, cellHeight, containerElementRef, isWide, offset, origin, transition } = grid
 
   const days = eachDayOfInterval({
@@ -107,10 +108,12 @@ CalendarGrid.propTypes = {
   getPrevMonthAriaLabel: func,
   minimumDate: instanceOf(Date),
   maximumDate: instanceOf(Date),
+  cellHeight: number,
   transitionDuration: number.isRequired
 }
 
 CalendarGrid.defaultProps = {
   modifiers: {},
+  cellHeight: 46,
   transitionDuration: 500
 }
