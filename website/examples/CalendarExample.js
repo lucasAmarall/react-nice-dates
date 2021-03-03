@@ -28,19 +28,18 @@ export default function CalendarExample() {
   )
 }
 
-`;
+`
 
 export default function CalendarExample() {
-  const [selectedDates, setSelectedDates] = useState([]);
+  const [selectedDates, setSelectedDates] = useState([])
 
   const modifiers = {
-    selected: (date) =>
-      selectedDates.some((selectedDate) => isSameDay(selectedDate, date)),
-  };
+    selected: date => selectedDates.some(selectedDate => isSameDay(selectedDate, date))
+  }
 
-  const handleDayClick = (date) => {
-    setSelectedDates([...selectedDates, date]);
-  };
+  const handleDayClick = date => {
+    setSelectedDates([...selectedDates, date])
+  }
 
   return (
     <Example code={code}>
@@ -54,8 +53,7 @@ export default function CalendarExample() {
       getNextMonthAriaLabel={(date) => `Go to: ${format(date, 'LLLL')}`}
       getPrevMonthAriaLabel={(date) => `Go back to: ${format(date, 'LLLL')}`}
         locale={enGB}
-        direction={"ltr"}
       />
     </Example>
-  );
+  )
 }

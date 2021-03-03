@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 import { bool, func, instanceOf, object, objectOf, string } from 'prop-types'
 import { startOfMonth } from 'date-fns'
 import { isSelectable, mergeModifiers } from './utils'
-import useControllableState from "./useControllableState";
-import CalendarNavigation from "./CalendarNavigation";
-import CalendarWeekHeader from "./CalendarWeekHeader";
-import CalendarGrid from "./CalendarGrid";
+import useControllableState from './useControllableState'
+import CalendarNavigation from './CalendarNavigation'
+import CalendarWeekHeader from './CalendarWeekHeader'
+import CalendarGrid from './CalendarGrid'
 
 export default function Calendar({
   locale,
@@ -22,18 +22,13 @@ export default function Calendar({
   shortWeekDay,
   getNextMonthAriaLabel,
   getPrevMonthAriaLabel,
-  direction,
 }) {
-  const [month, setMonth] = useControllableState(
-    receivedMonth,
-    onMonthChange,
-    startOfMonth(new Date())
-  );
+  const [month, setMonth] = useControllableState(receivedMonth, onMonthChange, startOfMonth(new Date()))
 
   const modifiers = mergeModifiers(
-    { disabled: (date) => !isSelectable(date, { minimumDate, maximumDate }) },
+    { disabled: date => !isSelectable(date, { minimumDate, maximumDate }) },
     receivedModifiers
-  );
+  )
 
   return (
     <div>
@@ -58,12 +53,11 @@ export default function Calendar({
         onDayHover={onDayHover}
         onDayClick={onDayClick}
         getDayAriaLabel={getDayAriaLabel}
-        direction={direction}
         minimumDate={minimumDate}
         maximumDate={maximumDate}
       />
     </div>
-  );
+  )
 }
 
 Calendar.propTypes = {
@@ -81,5 +75,4 @@ Calendar.propTypes = {
   getNextMonthAriaLabel: func,
   getPrevMonthAriaLabel: func,
   weekdayFormat: string,
-  direction: string,
-};
+}
